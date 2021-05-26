@@ -6,7 +6,7 @@
   "scripts": {
     "cypress:open": "cypress open",
     "test:vrt": "percy exec cypress run --spec 'cypress/integration/visual-test.spec.js'",
-    "cypress:run:report": "cypress run --spec --reporter mochawesome"
+    "cypress:run:report": "cypress run --spec reporter mochawesome"
   },
   "keywords": [],
   "author": "",

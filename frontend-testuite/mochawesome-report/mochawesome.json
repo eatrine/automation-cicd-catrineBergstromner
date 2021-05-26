@@ -1,0 +1,100 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-04-27T19:57:07.164Z",
+    "end": "2021-04-27T19:57:30.175Z",
+    "duration": 23011,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c04d097e-47a6-4214-a4aa-aa6b0e6f11c5",
+      "title": "",
+      "fullFile": "cypress/integration/visual-test.spec.js",
+      "file": "cypress/integration/visual-test.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c954bde2-e891-4d04-bef6-04cf0508b30b",
+          "title": "Testcase 5",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Login and create a new room, edit the room and delete it",
+              "fullTitle": "Testcase 5 Login and create a new room, edit the room and delete it",
+              "timedOut": null,
+              "duration": 19321,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('http://localhost:3000'); //loginpage\ncy.contains('Login');\ncy.percySnapshot('login-page');\ncy.get(':nth-child(1) > input').type('tester01');\ncy.get(':nth-child(2) > input').type('GteteqbQQgSr88SwNExUQv2ydb7xuf8c');\ncy.get('.btn').click(); //dashboardpage\ncy.contains('Tester Hotel Overview');\ncy.percySnapshot('dashboard-page');\ncy.get(':nth-child(1) > .btn').click(); //roomspage\ncy.contains('Rooms');\ncy.percySnapshot('rooms-page');\ncy.get('h2 > .btn').click(); //create room page\ncy.contains('New Room');\ncy.percySnapshot('create-room-page');\ncy.get(':nth-child(1) > select').select('Single');\ncy.get(':nth-child(2) > input').type('301');\ncy.get(':nth-child(3) > input').type('4');\ncy.get('.checkbox').click();\ncy.get(':nth-child(5) > input').type('1500');\ncy.get('[value=\"balcony\"]').click();\ncy.get('.blue').click();\ncy.get(':last-child > :nth-child(2) > h3'); //rooms page after creating new room\ncy.contains('Floor 4, Room 301');\ncy.percySnapshot('rooms-page-after-creating-new-room');\ncy.get(':nth-child(3) > .action > img').click();\ncy.get('.menu > :nth-child(1)').click(); //edit room page\ncy.contains('Room:');\ncy.percySnapshot('edit-room-page');\ncy.get(':nth-child(4) > input').clear();\ncy.get(':nth-child(4) > input').type('302');\ncy.get('.blue').click();\ncy.get(':last-child > :nth-child(2) > h3'); //rooms page after editing\ncy.contains('Floor 4, Room 302');\ncy.percySnapshot('rooms-page-after-edit-room');\ncy.get(':nth-child(3) > .action > img').click();\ncy.get('.menu > :nth-child(2)').click();\ncy.get('.user > .btn').click(); //logout\ncy.contains('Login');\ncy.percySnapshot('login-page-after-logout');",
+              "err": {},
+              "uuid": "7ba7790b-e4ce-4a82-99f4-a693426a437a",
+              "parentUUID": "c954bde2-e891-4d04-bef6-04cf0508b30b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7ba7790b-e4ce-4a82-99f4-a693426a437a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 19321,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.2.0"
+    }
+  }
+}

@@ -4,8 +4,12 @@ pipeline{
     stages{
         stage('FrontEnd test') {
             steps {
-            sh 'pwd'
-            sh 'ls -lart'
+            sh '''
+            cd frontend-testuite
+            npm install && npm run cypress:run:report
+            pwd
+            ls -lart
+            '''
             }
         }
         stage('BackEnd test') {

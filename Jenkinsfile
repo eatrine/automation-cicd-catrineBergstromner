@@ -10,6 +10,15 @@ pipeline{
             pwd
             ls -lart
             '''
+            publishHTML([
+                allowMissing: false, 
+                alwaysLinkToLastBuild: false, 
+                keepAll: false, 
+                reportDir: 'frontend-testuite/mochawesome-report', 
+                reportFiles: 'mochawesome.html', 
+                reportName: 'Frontend report', 
+                reportTitles: ''
+                ])
             }
         }
         stage('BackEnd test') {

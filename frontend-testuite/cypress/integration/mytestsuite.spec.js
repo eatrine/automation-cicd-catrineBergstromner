@@ -98,6 +98,7 @@ describe('Testcase 5', function (){
         cy.get(':nth-child(3) > .action > img').click()
         cy.get('.menu > :nth-child(1)').click()
         cy.contains('Room:')
+        cy.get(':nth-child(4) > input').clear()
         cy.get(':nth-child(4) > input').type('302')
         cy.get('.blue').click()
         cy.get(':last-child > :nth-child(2) > h3')

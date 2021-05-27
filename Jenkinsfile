@@ -10,6 +10,7 @@ pipeline{
             pwd
             ls -lart
             '''
+            archiveArtifacts allowEmptyArchive:true, artifacts: 'frontend-testuite/cypress/videos/**'
             publishHTML([
                 allowMissing: false, 
                 alwaysLinkToLastBuild: false, 
@@ -23,14 +24,41 @@ pipeline{
         }
         stage('BackEnd test') {
             steps {
-            sh 'pwd'
-            sh 'ls -lart'
+            sh '''
+            cd backend-tests
+            npm install && npm run cypress:run
+            pwd
+            ls -lart
+            '''
+            archiveArtifacts allowEmptyArchive:true, artifacts: 'backend-tests/cypress/videos/**'
+            publishHTML([
+                allowMissing: false, 
+                alwaysLinkToLastBuild: false, 
+                keepAll: false, 
+                reportDir: 'backend-tests/mochawesome-report', 
+                reportFiles: 'mochawesome.html', 
+                reportName: 'Backend report', 
+                reportTitles: ''
+                ])
+            
             }
         }
         stage('Performance test') {
             steps {
-            sh 'pwd'
-            sh 'ls -lart'
+            sh '''
+                cd performance-tests/
+                rm myTest.csv -Rf && rm html-reports/ -Rf
+                jmeter -n -t login-logout.jmx -l myTest.csv -e -o html-reports/
+            '''
+            publishHTML([
+                allowMissing: false, 
+                alwaysLinkToLastBuild: false, 
+                keepAll: false, 
+                reportDir: 'performance-tests/html-reports', 
+                reportFiles: 'index.html', 
+                reportName: 'Jmeter dashboard', 
+                reportTitles: ''
+                ])
             }
         }
     }
